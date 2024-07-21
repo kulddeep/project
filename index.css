@@ -1,0 +1,798 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Serif;
+}
+
+html, .app {
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  height: fit-content;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0vh 200px;
+  height: 5vw;
+  /*background-color: aqua;*/
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  margin: 20px;
+}
+
+.nav-items > ul {
+  display: flex;
+  align-items: center;
+}
+
+.nav-items > ul > li {
+  list-style: none;
+  margin: 20px;
+  text-align: center;
+}
+
+.nav-items > ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+
+.cartnotification {
+  color: #000;
+  text-align: center;
+  background-color: #0bdd2e;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 19px;
+  font-weight: 500;
+  position: absolute;
+  top: 26px;
+  right: 326px;
+  transform: translateY(-50%);
+}
+
+/* Search css */
+
+.filter {
+  display: flex;
+  margin: 20px 30px;
+  justify-content: center;
+  /* background-color: #16893F; */
+  align-items: start;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+.searchbox {
+  height: 40px;
+  width: 30vw;
+  margin-right: 5px;
+}
+
+.filter-btn {
+  height: 40px;
+  background-color: #ee7817;
+  color: white;
+  border: none;
+  border-radius: 5%;
+  font-size: large;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  scale: 1.01;
+  background-color: rgb(53, 51, 51);
+}
+
+/* Restaurant Card Css */
+
+.res-cards {
+  width: 100%;
+  padding: 10px;
+  /*background-color: aqua;*/
+}
+
+.res-cards > h3 {
+  font-weight: lighter;
+}
+
+.res-cards > h4 {
+  font-weight: lighter;
+  margin-top: 5px;
+  color: rgb(73, 73, 73);
+}
+
+.res-logo {
+  height: 200px;
+}
+
+.res-logo > img {
+  border-radius: 8%;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.1s ease;
+}
+
+.res-cards img:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 200px;
+}
+
+.res-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.res-container > a {
+  width: 25%;
+  padding: 10px;
+  /*background-color: aqua;*/
+  transition: transform 0.1s ease;
+}
+
+/* shimmer ui Css for loading page  */
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 200px;
+}
+
+.shimmer-cards {
+  width: 23%;
+  height: 300px;
+  margin: 10px;
+}
+
+.image-space {
+  width: auto;
+  margin: 10px;
+  height: 150px;
+  border-radius: 8%;
+  background-color: rgb(233, 243, 253);
+}
+
+.heading-space {
+  width: 80%;
+  height: 10px;
+  margin: 10px;
+  background-color: rgb(233, 243, 253);
+}
+
+.info-space {
+  width: 60%;
+  height: 10px;
+  margin: 10px;
+  background-color: rgb(233, 243, 253);
+}
+
+/* Login Button Css */
+.login {
+  width: 80px;
+  height: 40px;
+  font-size: large;
+  background-color: #16893f;
+  color: white;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.userinfo {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: black;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.userinfo span {
+  color: #0bdd2e;
+}
+/* rating icon */
+
+.res-rating {
+  display: flex;
+}
+
+.rating {
+  background-color: #16893f;
+  color: white;
+  border-radius: 4px;
+  padding: 0px 4px;
+}
+
+/* retaurant menu page */
+
+/* Restaurant detail */
+.res-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  margin: 30px 20%;
+  height: fit-content;
+  width: 60%;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255) -6.71%,
+    rgb(235, 235, 242) 56.19%,
+    rgb(223, 223, 231) 106.56%
+  );
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.res-info-detail {
+  height: 100%;
+}
+.res-info-detail > h1 {
+  margin: 40px 0px;
+  font-size: 28px;
+  color: rgb(21, 21, 21);
+}
+
+.res-info-detail > h3 {
+  font-weight: bold;
+}
+
+.res-info-detail > span {
+  font-size: medium;
+  font-weight: 600;
+}
+.res-info-detail > p {
+  line-height: 30px;
+}
+
+.menu-logo > img {
+  height: 190px;
+  width: 190px;
+  border-radius: 20px;
+}
+
+/* Restaurant Menu Items */
+
+.res-menu {
+  margin: 0 20%;
+  width: 60%;
+}
+
+.res-menu h1 {
+  color: #ee7817;
+  margin: 10px 0px;
+}
+
+.res-menu-items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  /* background-color: #16893f; */
+  border-bottom: 3px solid rgba(40, 44, 63, 0.1);
+}
+
+.item-detail {
+  height: 100%;
+  width: 50%;
+  line-height: 30px;
+}
+
+.item-image > img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* add button */
+.add-item {
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  bottom: -10;
+  left: 50%;
+  font-weight: 600;
+  transform: translateX(-50%);
+  font-size: large;
+  background-color: white;
+  color: #16893f;
+  border: 2px solid rgba(40, 44, 63, 0.1);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+/* remove button */
+.remove-item {
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  bottom: -10;
+  left: 50%;
+  font-weight: 600;
+  transform: translateX(-50%);
+  font-size: large;
+  background-color: #ee7817;
+  color: white;
+  border: 2px solid rgba(40, 44, 63, 0.1);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+/* clear button */
+.clear-item {
+  height: 40px;
+  width: 100px;
+  font-weight: 600;
+  font-size: 15;
+  margin: 10px 0px;
+  background-color: #16893f;
+  color: white;
+  border: 2px solid rgba(40, 44, 63, 0.1);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.item-image {
+  position: relative;
+  display: inline-block;
+}
+
+.add-item:hover {
+  transform: translate();
+  color: #16893f;
+  background-color: #d9dadb;
+}
+
+/* about css */
+
+.about-body{
+  height: 100vh;
+  width: 100%;
+  background-color: #F1F8E1;
+}
+
+.about-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.inner-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 340px;
+  overflow: hidden;
+}
+
+.aboutimage{
+  height: 500px;
+  width: 340px;
+}
+
+.card-hover{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  bottom: 0;
+  padding: 20px;
+  background-color: #86B970;
+  transition: bottom 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  border-top-left-radius: 150px 35px;
+  border-top-right-radius: 150px 35px;
+  width: 100%;
+  height: 50%;
+}
+
+.card-hover span{
+  color: #2D7F0A;
+}
+
+.card-hover a{
+  padding: 15px;
+}
+
+.card-hover h2{
+  font-weight: bolder;
+  font-size: x-large;
+  line-height: 30px;
+  padding: 15px;
+}
+
+.inner-box:hover .card-hover{
+  bottom: 50%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 150px 35px;
+  border-bottom-right-radius: 150px 35px;
+  background-color: #DEE8C1;
+}
+
+.github{
+  text-decoration: none;
+  color: #095e27;
+}
+
+
+/* Ensure higher specificity if needed */
+
+.nav-items {
+  font-weight: bolder;
+}
+
+.nav-items .nav-link {
+  color: grey;
+  text-decoration: none;
+}
+
+.nav-items .active-link {
+  color: #bfaa0f;
+}
+
+/* css for Footer*/
+
+.footer{
+  background-color: #116466;
+  height: 10vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer span{
+  color: #FF6309;
+}
+
+@media (max-width: 768px) {
+
+
+  body{
+    height: fit-content;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px 0px;
+    height: 8vh;
+    width: 100%;
+  }
+
+  .logo {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+  }
+  
+  .nav-items > ul {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
+  
+  .nav-items > ul > li {
+    list-style: none;
+    margin: 1vw;
+    text-align: center;
+  }
+  
+  .nav-items > ul > li > a {
+    font-size: small;
+    text-decoration: none;
+    color: black;
+  }
+
+  .cart-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+  }
+  
+  .cartnotification {
+    position: relative;
+    top: 0px;
+    right: 8px;
+    transform: translateY(-50%);
+  }
+  
+  /* Search css */
+  
+  .filter {
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+    /* background-color: #16893F; */
+    align-items: center;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px 0px 0px;
+  }
+  
+  .searchbox {
+    height: 30px;
+    margin: 0px;
+  }
+  
+  .filter-btn {
+    height: 30px;
+    font-size: smaller;
+  }
+  
+  .filter-btn:hover {
+    scale: 1.01;
+    background-color: rgb(53, 51, 51);
+  }
+  
+  /* Restaurant Card Css */
+  
+  .res-cards {
+    width: 100%;
+    padding: 10px;
+    /*background-color: aqua;*/
+  }
+  
+  .res-cards > h3 {
+    font-size: medium;
+    font-weight: bold;
+    line-height: 30px;
+  }
+  
+  .res-cards > h4 {
+    font-weight: lighter;
+    margin-top: 5px;
+    color: rgb(73, 73, 73);
+  }
+  
+  .res-logo {
+    height: 200px;
+  }
+  
+  .res-logo > img {
+    border-radius: 8%;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.1s ease;
+  }
+  
+  .res-cards img:hover {
+    transform: scale(0.95);
+    cursor: pointer;
+  }
+  
+  .res-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0px 20px;
+  }
+  
+  .res-container a {
+    text-decoration: none;
+    color: inherit;
+    justify-content: center;
+  }
+  
+  .res-container > a {
+    width: 100%;
+    padding: 10px;
+    /*background-color: aqua;*/
+    transition: transform 0.1s ease;
+  }
+  
+  /* shimmer ui Css for loading page  */
+  .shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0px 20px;
+  }
+  
+  .shimmer-cards {
+    width: 100%;
+    height: 300px;
+    margin: 10px;
+  }
+  
+  
+  
+  /* Login Button Css */
+  .login {
+    width: 80px;
+    height: 30px;
+    font-size: smaller;
+    background-color: #16893f;
+    color: white;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+  }
+  
+  .userinfo {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    padding: 5px 20px;
+    border-radius: 20px;
+  }
+  
+  .userinfo span {
+    color: #0bdd2e;
+  }
+  /* rating icon */
+  
+  .res-rating {
+    display: flex;
+  }
+  
+  .rating {
+    background-color: #16893f;
+    color: white;
+    border-radius: 4px;
+    padding: 0px 4px;
+  }
+  
+  /* retaurant menu page */
+  
+  /* Restaurant detail */
+  .res-info {
+    margin: 30px 20px;
+    height: fit-content;
+    width: 90%;
+  }
+
+  .res-info-detail h1{
+    font-size: x-large;
+  }
+  
+  
+  
+  /* Restaurant Menu Items */
+  
+  .res-menu {
+    display: flex;
+    margin: 0 20px;
+    width: 90%;
+    height: fit-content;
+    flex-direction: column;
+  }
+  
+  .res-menu h1 {
+    color: #ee7817;
+    margin: 10px 0px;
+    font-size: x-large;
+  }
+  
+  .res-menu-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    /* background-color: #16893f; */
+    border-bottom: 3px solid rgba(40, 44, 63, 0.1);
+  }
+  
+  .item-detail {
+    height: 100%;
+    width: 60%;
+    line-height: 25px;
+  }
+
+  .item-detail > h3{
+    font-size: medium;
+  }
+  
+  .item-image  img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+  
+  /* add button */
+  .add-item {
+    height: 40px;
+    width: 100px;
+    position: relative;
+    left: 50%;
+    bottom: 20px; /* Adjust this value to control how much of the button is outside the image */
+    transform: translateX(-50%);
+    font-weight: 600;
+    font-size: large;
+    background-color: white;
+    color: #16893f;
+    border: 2px solid rgba(40, 44, 63, 0.1);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* remove button */
+  .remove-item {
+    height: 35px;
+    width: 100px;
+    position: absolute;
+    bottom: -10;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: small;
+    background-color: #ee7817;
+    color: white;
+    border: 2px solid rgba(40, 44, 63, 0.1);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* clear button */
+  .clear-item {
+    height: 35px;
+    width: 100px;
+    font-size: small;
+    margin: 10px 0px;
+    background-color: #16893f;
+    color: white;
+    border: 2px solid rgba(40, 44, 63, 0.1);
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  .item-image {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .add-item:hover {
+    transform: translate();
+    color: #16893f;
+    background-color: #d9dadb;
+  }
+
+}

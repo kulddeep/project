@@ -26,6 +26,18 @@ const Header = () => {
     }
   }, [isAuthenticated]);
 
+  const handleLogin = () => {
+    loginWithRedirect({
+      redirectUri: window.location.origin + "/callback", // Highlighted: Set the correct redirect URI
+    });
+  };
+
+  const handleLogout = () => {
+    logout({
+      logoutParams: { returnTo: window.location.origin }, // Highlighted: Set the correct return URL
+    });
+  };
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -72,11 +84,7 @@ const Header = () => {
             <li>
               <button
                 className="login"
-                onClick={() =>
-                  logout({ 
-                    logoutParams: { returnTo: window.location.origin } // Highlighted
-                  })
-                }
+                onClick={handleLogout} // Highlighted: Use handleLogout function
               >
                 Log Out
               </button>
@@ -85,11 +93,7 @@ const Header = () => {
             <li>
               <button
                 className="login"
-                onClick={() => 
-                  loginWithRedirect({
-                    redirectUri: window.location.origin + "/callback" // Highlighted
-                  })
-                }
+                onClick={handleLogin} // Highlighted: Use handleLogin function
               >
                 Log In
               </button>

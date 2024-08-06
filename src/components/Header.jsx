@@ -1,19 +1,19 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
-  //subscribing to store using selector
+  // Subscribing to store using selector
   const cartItems = useSelector((store) => store.cart.items);
 
   console.log(cartItems);
 
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     if (isAuthenticated) {
       setIsVisible(true);
@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <img className="logo" src={LOGO_URL} alt="Logo" />
       </div>
       <div className="nav-items">
         <ul>
@@ -73,7 +73,9 @@ const Header = () => {
               <button
                 className="login"
                 onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
+                  logout({ 
+                    logoutParams: { returnTo: window.location.origin } // Highlighted
+                  })
                 }
               >
                 Log Out
@@ -81,7 +83,14 @@ const Header = () => {
             </li>
           ) : (
             <li>
-              <button className="login" onClick={() => loginWithRedirect()}>
+              <button
+                className="login"
+                onClick={() => 
+                  loginWithRedirect({
+                    redirectUri: window.location.origin + "/callback" // Highlighted
+                  })
+                }
+              >
                 Log In
               </button>
             </li>
